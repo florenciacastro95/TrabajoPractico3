@@ -67,7 +67,9 @@ public class Login extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Iniciar sesión");
         setBackground(new java.awt.Color(51, 255, 255));
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(71, 174, 174));
 
@@ -85,7 +87,14 @@ public class Login extends javax.swing.JFrame {
         JLcontraseña.setForeground(new java.awt.Color(132, 144, 160));
         JLcontraseña.setText("CONTRASEÑA");
 
+        JTFMail.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+
         jPass1.setText("jPasswordField1");
+        jPass1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPass1ActionPerformed(evt);
+            }
+        });
 
         JBconfirmar.setBackground(new java.awt.Color(96, 149, 149));
         JBconfirmar.setFont(new java.awt.Font("Candara Light", 0, 18)); // NOI18N
@@ -194,6 +203,10 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrectos");
         }
     }//GEN-LAST:event_JBconfirmarActionPerformed
+
+    private void jPass1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPass1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPass1ActionPerformed
 
     /**
      * @param args the command line arguments
