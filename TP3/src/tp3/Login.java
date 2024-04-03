@@ -197,10 +197,25 @@ public class Login extends javax.swing.JFrame {
 
     private void JBconfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBconfirmarActionPerformed
         // TODO add your handling code here:
-        if(JTFMail.getText().equals("alumno@ulp.edu.ar") && String.valueOf(jPass1.getPassword()).equals("12345678")){
-            JOptionPane.showMessageDialog(this, "Bienvenido");
-        }else{
-            JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrectos");
+        String email = JTFMail.getText();
+        String password = String.valueOf(jPass1.getPassword());
+        try{    
+            if(email.equals("alumno@ulp.edu.ar") && password.equals("12345678")){
+                JOptionPane.showMessageDialog(this, "Bienvenido");
+            }else{
+                if(email.isEmpty()||password.isEmpty()){
+                    throw new IllegalArgumentException("Debe ingresar un email y contraseña");  
+                }else if(!email.contains("@")){
+                    throw new IllegalArgumentException("No ha ingresado un email válido"); 
+                }else{
+                    throw new SecurityException("Usuario y/o contraseña incorrectos");
+                }
+            }
+        }catch(IllegalArgumentException | SecurityException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }finally{
+            JTFMail.setText("");
+            jPass1.setText("");
         }
     }//GEN-LAST:event_JBconfirmarActionPerformed
 
